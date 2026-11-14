@@ -241,7 +241,13 @@ function layout(title, content, activeNav = '', siteData, customMeta = '') {
         <div id="header-search-results" class="search-dropdown" style="display:none;"></div>
       </div>
 
-      <button class="mobile-toggle" aria-label="Toggle Navigation">&#9776;</button>
+      <button class="mobile-toggle" aria-label="Toggle Navigation Menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
 
       <!-- Clean Public Navigation (Admin link placed discreetly in footer) -->
       <nav class="main-nav" role="navigation" aria-label="Main Navigation">

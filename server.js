@@ -258,11 +258,11 @@ app.get('/contact', (req, res) => {
 // REST API FOR ADMIN & CONTENT MANAGEMENT
 // ==========================================
 
-app.get('/api/content', (req, res) => {
+app.get(['/api/content', '/content'], (req, res) => {
   res.json(loadData());
 });
 
-app.post('/api/login', (req, res) => {
+app.post(['/api/login', '/login'], (req, res) => {
   const { username, password } = req.body;
   const data = loadData();
   const admin = data.config.admin;
@@ -272,7 +272,7 @@ app.post('/api/login', (req, res) => {
   return res.status(401).json({ success: false, message: 'Invalid username or password' });
 });
 
-app.post('/api/posts', (req, res) => {
+app.post(['/api/posts', '/posts'], (req, res) => {
   const data = loadData();
   const existingIndex = req.body.id ? data.posts.findIndex(p => p.id == req.body.id) : -1;
 
@@ -299,7 +299,7 @@ app.post('/api/posts', (req, res) => {
   res.json({ success: true, post: postObj });
 });
 
-app.delete('/api/posts/:id', (req, res) => {
+app.delete(['/api/posts/:id', '/posts/:id'], (req, res) => {
   const data = loadData();
   const id = parseInt(req.params.id, 10);
   data.posts = data.posts.filter(p => p.id !== id);
@@ -307,7 +307,7 @@ app.delete('/api/posts/:id', (req, res) => {
   res.json({ success: true });
 });
 
-app.post('/api/galleries', (req, res) => {
+app.post(['/api/galleries', '/galleries'], (req, res) => {
   const data = loadData();
   const newGallery = {
     id: req.body.id || 'gallery-' + Date.now(),
@@ -324,14 +324,14 @@ app.post('/api/galleries', (req, res) => {
   res.json({ success: true, gallery: newGallery });
 });
 
-app.delete('/api/galleries/:id', (req, res) => {
+app.delete(['/api/galleries/:id', '/galleries/:id'], (req, res) => {
   const data = loadData();
   data.galleries = data.galleries.filter(g => g.id !== req.params.id);
   saveData(data);
   res.json({ success: true });
 });
 
-app.get('/api/media', (req, res) => {
+app.get(['/api/media', '/media'], (req, res) => {
   try {
     const data = loadData();
     const mediaList = [...(data.media || [])];
@@ -359,7 +359,7 @@ app.get('/api/media', (req, res) => {
   }
 });
 
-app.post('/api/upload', (req, res) => {
+app.post(['/api/upload', '/upload'], (req, res) => {
   const { filename, data } = req.body;
   if (!filename || !data) return res.status(400).json({ success: false, message: 'Missing file data' });
 
@@ -400,7 +400,7 @@ app.post('/api/upload', (req, res) => {
   }
 });
 
-app.post('/api/settings', (req, res) => {
+app.post(['/api/settings', '/settings'], (req, res) => {
   const data = loadData();
   data.config = req.body;
   saveData(data);

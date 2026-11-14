@@ -1,0 +1,272 @@
+[
+  {
+    "id": 18,
+    "count": 1,
+    "description": "",
+    "link": "https://guruvayurlive.in/category/darshan-entry-rules/",
+    "name": "Darshan &amp; Entry Rules",
+    "slug": "darshan-entry-rules",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/categories/18",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/posts?categories=18"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 16,
+    "count": 1,
+    "description": "",
+    "link": "https://guruvayurlive.in/category/festivals/",
+    "name": "Festivals",
+    "slug": "festivals",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/categories/16",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/posts?categories=16"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 19,
+    "count": 1,
+    "description": "",
+    "link": "https://guruvayurlive.in/category/temple-history/",
+    "name": "Temple History",
+    "slug": "temple-history",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/categories/19",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/posts?categories=19"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 17,
+    "count": 0,
+    "description": "",
+    "link": "https://guruvayurlive.in/category/temple-timings/",
+    "name": "Temple Timings",
+    "slug": "temple-timings",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/categories/17",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/posts?categories=17"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 20,
+    "count": 1,
+    "description": "",
+    "link": "https://guruvayurlive.in/category/travel-guide/",
+    "name": "Travel Guide",
+    "slug": "travel-guide",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/categories/20",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/posts?categories=20"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 1,
+    "count": 0,
+    "description": "",
+    "link": "https://guruvayurlive.in/category/uncategorized/",
+    "name": "Uncategorized",
+    "slug": "uncategorized",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/categories/1",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/posts?categories=1"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  }
+]

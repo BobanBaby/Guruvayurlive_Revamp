@@ -1,0 +1,1062 @@
+[
+  {
+    "id": 23,
+    "date": "2025-08-12T17:37:59",
+    "date_gmt": "2025-08-12T17:37:59",
+    "guid": {
+      "rendered": "https://guruvayurlive.in/?page_id=23"
+    },
+    "modified": "2025-08-12T17:38:01",
+    "modified_gmt": "2025-08-12T17:38:01",
+    "slug": "terms-and-conditions",
+    "status": "publish",
+    "type": "page",
+    "link": "https://guruvayurlive.in/terms-and-conditions/",
+    "title": {
+      "rendered": "Terms and Conditions"
+    },
+    "content": {
+      "rendered": "\n<p class=\"wp-block-paragraph\"><strong>Terms and Conditions</strong></p>\n\n\n\n<p class=\"wp-block-paragraph\">By using this website, you agree to the following terms:</p>\n\n\n\n<ul class=\"wp-block-list\">\n<li>All information provided is for general knowledge and devotional purpose only.</li>\n\n\n\n<li>We do our best to provide accurate information, but we are not affiliated with the official Guruvayur Temple authority.</li>\n\n\n\n<li>We are not responsible for actions taken based on information on this site.</li>\n\n\n\n<li>External links may lead to third-party sites. We are not responsible for their content or privacy policies.</li>\n\n\n\n<li>You may not copy or reuse our content without permission.</li>\n</ul>\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "<p>Terms and Conditions By using this website, you agree to the following terms:</p>\n",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 0,
+    "parent": 0,
+    "menu_order": 0,
+    "comment_status": "closed",
+    "ping_status": "closed",
+    "template": "",
+    "meta": {
+      "site-sidebar-layout": "default",
+      "site-content-layout": "",
+      "ast-site-content-layout": "default",
+      "site-content-style": "default",
+      "site-sidebar-style": "default",
+      "ast-global-header-display": "",
+      "ast-banner-title-visibility": "",
+      "ast-main-header-display": "",
+      "ast-hfb-above-header-display": "",
+      "ast-hfb-below-header-display": "",
+      "ast-hfb-mobile-header-display": "",
+      "site-post-title": "",
+      "ast-breadcrumbs-content": "",
+      "ast-featured-img": "",
+      "footer-sml-layout": "",
+      "theme-transparent-header-meta": "",
+      "adv-header-id-meta": "",
+      "stick-header-meta": "",
+      "header-above-stick-meta": "",
+      "header-main-stick-meta": "",
+      "header-below-stick-meta": "",
+      "astra-migrate-meta-layouts": "default",
+      "ast-page-background-enabled": "default",
+      "ast-page-background-meta": {
+        "desktop": {
+          "background-color": "var(--ast-global-color-5)",
+          "background-image": "",
+          "background-repeat": "repeat",
+          "background-position": "center center",
+          "background-size": "auto",
+          "background-attachment": "scroll",
+          "background-type": "",
+          "background-media": "",
+          "overlay-type": "",
+          "overlay-color": "",
+          "overlay-opacity": "",
+          "overlay-gradient": ""
+        },
+        "tablet": {
+          "background-color": "",
+          "background-image": "",
+          "background-repeat": "repeat",
+          "background-position": "center center",
+          "background-size": "auto",
+          "background-attachment": "scroll",
+          "background-type": "",
+          "background-media": "",
+          "overlay-type": "",
+          "overlay-color": "",
+          "overlay-opacity": "",
+          "overlay-gradient": ""
+        },
+        "mobile": {
+          "background-color": "",
+          "background-image": "",
+          "background-repeat": "repeat",
+          "background-position": "center center",
+          "background-size": "auto",
+          "background-attachment": "scroll",
+          "background-type": "",
+          "background-media": "",
+          "overlay-type": "",
+          "overlay-color": "",
+          "overlay-opacity": "",
+          "overlay-gradient": ""
+        }
+      },
+      "ast-content-background-meta": {
+        "desktop": {
+          "background-color": "var(--ast-global-color-4)",
+          "background-image": "",
+          "background-repeat": "repeat",
+          "background-position": "center center",
+          "background-size": "auto",
+          "background-attachment": "scroll",
+          "background-type": "",
+          "background-media": "",
+          "overlay-type": "",
+          "overlay-color": "",
+          "overlay-opacity": "",
+          "overlay-gradient": ""
+        },
+        "tablet": {
+          "background-color": "var(--ast-global-color-4)",
+          "background-image": "",
+          "background-repeat": "repeat",
+          "background-position": "center center",
+          "background-size": "auto",
+          "background-attachment": "scroll",
+          "background-type": "",
+          "background-media": "",
+          "overlay-type": "",
+          "overlay-color": "",
+          "overlay-opacity": "",
+          "overlay-gradient": ""
+        },
+        "mobile": {
+          "background-color": "var(--ast-global-color-4)",
+          "background-image": "",
+          "background-repeat": "repeat",
+          "background-position": "center center",
+          "background-size": "auto",
+          "background-attachment": "scroll",
+          "background-type": "",
+          "background-media": "",
+          "overlay-type": "",
+          "overlay-color": "",
+          "overlay-opacity": "",
+          "overlay-gradient": ""
+        }
+      },
+      "footnotes": ""
+    },
+    "class_list": [
+      "post-23",
+      "page",
+      "type-page",
+      "status-publish",
+      "hentry"
+    ],
+    "jetpack_sharing_enabled": true,
+    "_links": {
+      "self": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/pages/23",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/pages"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/types/page"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/users/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/comments?post=23"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 1,
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/pages/23/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 24,
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/pages/23/revisions/24"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/media?parent=23"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 17,
+    "date": "2025-08-12T12:17:09",
+    "date_gmt": "2025-08-12T12:17:09",
+    "guid": {
+      "rendered": "https://guruvayurlive.in/?page_id=17"
+    },
+    "modified": "2025-08-12T12:17:09",
+    "modified_gmt": "2025-08-12T12:17:09",
+    "slug": "categories",
+    "status": "publish",
+    "type": "page",
+    "link": "https://guruvayurlive.in/categories/",
+    "title": {
+      "rendered": "Categories"
+    },
+    "content": {
+      "rendered": "",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 0,
+    "parent": 0,
+    "menu_order": 0,
+    "comment_status": "closed",
+    "ping_status": "closed",
+    "template": "",
+    "meta": {
+      "site-sidebar-layout": "default",
+      "site-content-layout": "",
+      "ast-site-content-layout": "default",
+      "site-content-style": "default",
+      "site-sidebar-style": "default",
+      "ast-global-header-display": "",
+      "ast-banner-title-visibility": "",
+      "ast-main-header-display": "",
+      "ast-hfb-above-header-display": "",
+      "ast-hfb-below-header-display": "",
+      "ast-hfb-mobile-header-display": "",
+      "site-post-title": "",
+      "ast-breadcrumbs-content": "",
+      "ast-featured-img": "",
+      "footer-sml-layout": "",
+      "theme-transparent-header-meta": "",
+      "adv-header-id-meta": "",
+      "stick-header-meta": "",
+      "header-above-stick-meta": "",
+      "header-main-stick-meta": "",
+      "header-below-stick-meta": "",
+      "astra-migrate-meta-layouts": "default",
+      "ast-page-background-enabled": "default",
+      "ast-page-background-meta": {
+        "desktop": {
+          "background-color": "var(--ast-global-color-5)",
+          "background-image": "",
+          "background-repeat": "repeat",
+          "background-position": "center center",
+          "background-size": "auto",
+          "background-attachment": "scroll",
+          "background-type": "",
+          "background-media": "",
+          "overlay-type": "",
+          "overlay-color": "",
+          "overlay-opacity": "",
+          "overlay-gradient": ""
+        },
+        "tablet": {
+          "background-color": "",
+          "background-image": "",
+          "background-repeat": "repeat",
+          "background-position": "center center",
+          "background-size": "auto",
+          "background-attachment": "scroll",
+          "background-type": "",
+          "background-media": "",
+          "overlay-type": "",
+          "overlay-color": "",
+          "overlay-opacity": "",
+          "overlay-gradient": ""
+        },
+        "mobile": {
+          "background-color": "",
+          "background-image": "",
+          "background-repeat": "repeat",
+          "background-position": "center center",
+          "background-size": "auto",
+          "background-attachment": "scroll",
+          "background-type": "",
+          "background-media": "",
+          "overlay-type": "",
+          "overlay-color": "",
+          "overlay-opacity": "",
+          "overlay-gradient": ""
+        }
+      },
+      "ast-content-background-meta": {
+        "desktop": {
+          "background-color": "var(--ast-global-color-4)",
+          "background-image": "",
+          "background-repeat": "repeat",
+          "background-position": "center center",
+          "background-size": "auto",
+          "background-attachment": "scroll",
+          "background-type": "",
+          "background-media": "",
+          "overlay-type": "",
+          "overlay-color": "",
+          "overlay-opacity": "",
+          "overlay-gradient": ""
+        },
+        "tablet": {
+          "background-color": "var(--ast-global-color-4)",
+          "background-image": "",
+          "background-repeat": "repeat",
+          "background-position": "center center",
+          "background-size": "auto",
+          "background-attachment": "scroll",
+          "background-type": "",
+          "background-media": "",
+          "overlay-type": "",
+          "overlay-color": "",
+          "overlay-opacity": "",
+          "overlay-gradient": ""
+        },
+        "mobile": {
+          "background-color": "var(--ast-global-color-4)",
+          "background-image": "",
+          "background-repeat": "repeat",
+          "background-position": "center center",
+          "background-size": "auto",
+          "background-attachment": "scroll",
+          "background-type": "",
+          "background-media": "",
+          "overlay-type": "",
+          "overlay-color": "",
+          "overlay-opacity": "",
+          "overlay-gradient": ""
+        }
+      },
+      "footnotes": ""
+    },
+    "class_list": [
+      "post-17",
+      "page",
+      "type-page",
+      "status-publish",
+      "hentry"
+    ],
+    "jetpack_sharing_enabled": true,
+    "_links": {
+      "self": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/pages/17",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/pages"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/types/page"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/users/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/comments?post=17"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 1,
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/pages/17/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 18,
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/pages/17/revisions/18"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/media?parent=17"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 19,
+    "date": "2025-08-12T12:15:24",
+    "date_gmt": "2025-08-12T12:15:24",
+    "guid": {
+      "rendered": "https://guruvayurlive.in/?page_id=19"
+    },
+    "modified": "2025-08-12T12:15:24",
+    "modified_gmt": "2025-08-12T12:15:24",
+    "slug": "contact",
+    "status": "publish",
+    "type": "page",
+    "link": "https://guruvayurlive.in/contact/",
+    "title": {
+      "rendered": "Contact"
+    },
+    "content": {
+      "rendered": "",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 0,
+    "parent": 0,
+    "menu_order": 0,
+    "comment_status": "closed",
+    "ping_status": "closed",
+    "template": "",
+    "meta": {
+      "site-sidebar-layout": "default",
+      "site-content-layout": "",
+      "ast-site-content-layout": "default",
+      "site-content-style": "default",
+      "site-sidebar-style": "default",
+      "ast-global-header-display": "",
+      "ast-banner-title-visibility": "",
+      "ast-main-header-display": "",
+      "ast-hfb-above-header-display": "",
+      "ast-hfb-below-header-display": "",
+      "ast-hfb-mobile-header-display": "",
+      "site-post-title": "",
+      "ast-breadcrumbs-content": "",
+      "ast-featured-img": "",
+      "footer-sml-layout": "",
+      "theme-transparent-header-meta": "",
+      "adv-header-id-meta": "",
+      "stick-header-meta": "",
+      "header-above-stick-meta": "",
+      "header-main-stick-meta": "",
+      "header-below-stick-meta": "",
+      "astra-migrate-meta-layouts": "default",
+      "ast-page-background-enabled": "default",
+      "ast-page-background-meta": {
+        "desktop": {
+          "background-color": "var(--ast-global-color-5)",
+          "background-image": "",
+          "background-repeat": "repeat",
+          "background-position": "center center",
+          "background-size": "auto",
+          "background-attachment": "scroll",
+          "background-type": "",
+          "background-media": "",
+          "overlay-type": "",
+          "overlay-color": "",
+          "overlay-opacity": "",
+          "overlay-gradient": ""
+        },
+        "tablet": {
+          "background-color": "",
+          "background-image": "",
+          "background-repeat": "repeat",
+          "background-position": "center center",
+          "background-size": "auto",
+          "background-attachment": "scroll",
+          "background-type": "",
+          "background-media": "",
+          "overlay-type": "",
+          "overlay-color": "",
+          "overlay-opacity": "",
+          "overlay-gradient": ""
+        },
+        "mobile": {
+          "background-color": "",
+          "background-image": "",
+          "background-repeat": "repeat",
+          "background-position": "center center",
+          "background-size": "auto",
+          "background-attachment": "scroll",
+          "background-type": "",
+          "background-media": "",
+          "overlay-type": "",
+          "overlay-color": "",
+          "overlay-opacity": "",
+          "overlay-gradient": ""
+        }
+      },
+      "ast-content-background-meta": {
+        "desktop": {
+          "background-color": "var(--ast-global-color-4)",
+          "background-image": "",
+          "background-repeat": "repeat",
+          "background-position": "center center",
+          "background-size": "auto",
+          "background-attachment": "scroll",
+          "background-type": "",
+          "background-media": "",
+          "overlay-type": "",
+          "overlay-color": "",
+          "overlay-opacity": "",
+          "overlay-gradient": ""
+        },
+        "tablet": {
+          "background-color": "var(--ast-global-color-4)",
+          "background-image": "",
+          "background-repeat": "repeat",
+          "background-position": "center center",
+          "background-size": "auto",
+          "background-attachment": "scroll",
+          "background-type": "",
+          "background-media": "",
+          "overlay-type": "",
+          "overlay-color": "",
+          "overlay-opacity": "",
+          "overlay-gradient": ""
+        },
+        "mobile": {
+          "background-color": "var(--ast-global-color-4)",
+          "background-image": "",
+          "background-repeat": "repeat",
+          "background-position": "center center",
+          "background-size": "auto",
+          "background-attachment": "scroll",
+          "background-type": "",
+          "background-media": "",
+          "overlay-type": "",
+          "overlay-color": "",
+          "overlay-opacity": "",
+          "overlay-gradient": ""
+        }
+      },
+      "footnotes": ""
+    },
+    "class_list": [
+      "post-19",
+      "page",
+      "type-page",
+      "status-publish",
+      "hentry"
+    ],
+    "jetpack_sharing_enabled": true,
+    "_links": {
+      "self": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/pages/19",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/pages"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/types/page"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/users/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/comments?post=19"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 1,
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/pages/19/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 20,
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/pages/19/revisions/20"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/media?parent=19"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 9,
+    "date": "2025-08-12T12:09:41",
+    "date_gmt": "2025-08-12T12:09:41",
+    "guid": {
+      "rendered": "https://guruvayurlive.in/?page_id=9"
+    },
+    "modified": "2025-08-12T12:09:41",
+    "modified_gmt": "2025-08-12T12:09:41",
+    "slug": "about",
+    "status": "publish",
+    "type": "page",
+    "link": "https://guruvayurlive.in/about/",
+    "title": {
+      "rendered": "About"
+    },
+    "content": {
+      "rendered": "\n<p class=\"wp-block-paragraph\">Welcome to Guruvayur Live, a devotional space dedicated to the sacred Guruvayur Temple and the divine presence of Lord Guruvayurappan. This blog is created with love and devotion, aiming to bring together information, stories, rituals, festivals, and travel tips for pilgrims and devotees alike.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Whether you are planning your first visit or have been visiting Guruvayur for years, our goal is to help you experience the temple more deeply and meaningfully.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Here, you&#8217;ll find:</p>\n\n\n\n<ul class=\"wp-block-list\">\n<li>Daily darshan and pooja timings</li>\n\n\n\n<li>Temple history and legends</li>\n\n\n\n<li>Festival details and dates</li>\n\n\n\n<li>Travel and accommodation guides</li>\n\n\n\n<li>Devotee stories and blog posts</li>\n</ul>\n\n\n\n<p class=\"wp-block-paragraph\">I created this blog out of personal devotion and the desire to help others connect with the spiritual essence of Guruvayur. Thank you for being part of this journey!</p>\n\n\n\n<p class=\"has-small-font-size wp-block-paragraph\"></p>\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "<p>Welcome to Guruvayur Live, a devotional space dedicated to the sacred Guruvayur Temple and the divine presence of Lord Guruvayurappan. [&hellip;]</p>\n",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 0,
+    "parent": 0,
+    "menu_order": 0,
+    "comment_status": "closed",
+    "ping_status": "closed",
+    "template": "",
+    "meta": {
+      "site-sidebar-layout": "default",
+      "site-content-layout": "",
+      "ast-site-content-layout": "default",
+      "site-content-style": "default",
+      "site-sidebar-style": "default",
+      "ast-global-header-display": "",
+      "ast-banner-title-visibility": "",
+      "ast-main-header-display": "",
+      "ast-hfb-above-header-display": "",
+      "ast-hfb-below-header-display": "",
+      "ast-hfb-mobile-header-display": "",
+      "site-post-title": "",
+      "ast-breadcrumbs-content": "",
+      "ast-featured-img": "",
+      "footer-sml-layout": "",
+      "theme-transparent-header-meta": "",
+      "adv-header-id-meta": "",
+      "stick-header-meta": "",
+      "header-above-stick-meta": "",
+      "header-main-stick-meta": "",
+      "header-below-stick-meta": "",
+      "astra-migrate-meta-layouts": "default",
+      "ast-page-background-enabled": "default",
+      "ast-page-background-meta": {
+        "desktop": {
+          "background-color": "var(--ast-global-color-5)",
+          "background-image": "",
+          "background-repeat": "repeat",
+          "background-position": "center center",
+          "background-size": "auto",
+          "background-attachment": "scroll",
+          "background-type": "",
+          "background-media": "",
+          "overlay-type": "",
+          "overlay-color": "",
+          "overlay-opacity": "",
+          "overlay-gradient": ""
+        },
+        "tablet": {
+          "background-color": "",
+          "background-image": "",
+          "background-repeat": "repeat",
+          "background-position": "center center",
+          "background-size": "auto",
+          "background-attachment": "scroll",
+          "background-type": "",
+          "background-media": "",
+          "overlay-type": "",
+          "overlay-color": "",
+          "overlay-opacity": "",
+          "overlay-gradient": ""
+        },
+        "mobile": {
+          "background-color": "",
+          "background-image": "",
+          "background-repeat": "repeat",
+          "background-position": "center center",
+          "background-size": "auto",
+          "background-attachment": "scroll",
+          "background-type": "",
+          "background-media": "",
+          "overlay-type": "",
+          "overlay-color": "",
+          "overlay-opacity": "",
+          "overlay-gradient": ""
+        }
+      },
+      "ast-content-background-meta": {
+        "desktop": {
+          "background-color": "var(--ast-global-color-4)",
+          "background-image": "",
+          "background-repeat": "repeat",
+          "background-position": "center center",
+          "background-size": "auto",
+          "background-attachment": "scroll",
+          "background-type": "",
+          "background-media": "",
+          "overlay-type": "",
+          "overlay-color": "",
+          "overlay-opacity": "",
+          "overlay-gradient": ""
+        },
+        "tablet": {
+          "background-color": "var(--ast-global-color-4)",
+          "background-image": "",
+          "background-repeat": "repeat",
+          "background-position": "center center",
+          "background-size": "auto",
+          "background-attachment": "scroll",
+          "background-type": "",
+          "background-media": "",
+          "overlay-type": "",
+          "overlay-color": "",
+          "overlay-opacity": "",
+          "overlay-gradient": ""
+        },
+        "mobile": {
+          "background-color": "var(--ast-global-color-4)",
+          "background-image": "",
+          "background-repeat": "repeat",
+          "background-position": "center center",
+          "background-size": "auto",
+          "background-attachment": "scroll",
+          "background-type": "",
+          "background-media": "",
+          "overlay-type": "",
+          "overlay-color": "",
+          "overlay-opacity": "",
+          "overlay-gradient": ""
+        }
+      },
+      "footnotes": ""
+    },
+    "class_list": [
+      "post-9",
+      "page",
+      "type-page",
+      "status-publish",
+      "hentry"
+    ],
+    "jetpack_sharing_enabled": true,
+    "_links": {
+      "self": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/pages/9",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/pages"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/types/page"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/users/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/comments?post=9"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 1,
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/pages/9/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 11,
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/pages/9/revisions/11"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/media?parent=9"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "date": "2025-08-12T11:48:39",
+    "date_gmt": "2025-08-12T11:48:39",
+    "guid": {
+      "rendered": "http://guruvayurlive.in/?page_id=3"
+    },
+    "modified": "2025-08-12T12:12:26",
+    "modified_gmt": "2025-08-12T12:12:26",
+    "slug": "privacy-policy",
+    "status": "publish",
+    "type": "page",
+    "link": "https://guruvayurlive.in/privacy-policy/",
+    "title": {
+      "rendered": "Privacy Policy"
+    },
+    "content": {
+      "rendered": "\n<p class=\"wp-block-paragraph\"><strong>Privacy Policy</strong></p>\n\n\n\n<p class=\"wp-block-paragraph\">This website, [YourSiteName], respects your privacy and is committed to protecting your personal data.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>What Information We Collect:</strong></p>\n\n\n\n<ul class=\"wp-block-list\">\n<li>Name and email (if you contact us)</li>\n\n\n\n<li>Anonymous traffic data via Google Analytics</li>\n</ul>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>How We Use Your Information:</strong></p>\n\n\n\n<ul class=\"wp-block-list\">\n<li>To respond to your messages</li>\n\n\n\n<li>To improve site performance</li>\n</ul>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Cookies:</strong><br>This site uses cookies for better user experience and analytics. By using this site, you consent to the use of cookies.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Third-Party Services:</strong><br>We use third-party services like Google Analytics and social sharing plugins that may collect anonymous usage data.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Your Rights:</strong><br>You can request to view, update, or delete your personal data.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><strong>Contact Us:</strong><br>If you have questions about your privacy, contact us at [your email].</p>\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "<p>Privacy Policy This website, [YourSiteName], respects your privacy and is committed to protecting your personal data. What Information We Collect: [&hellip;]</p>\n",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 0,
+    "parent": 0,
+    "menu_order": 0,
+    "comment_status": "closed",
+    "ping_status": "open",
+    "template": "",
+    "meta": {
+      "site-sidebar-layout": "default",
+      "site-content-layout": "",
+      "ast-site-content-layout": "default",
+      "site-content-style": "default",
+      "site-sidebar-style": "default",
+      "ast-global-header-display": "",
+      "ast-banner-title-visibility": "",
+      "ast-main-header-display": "",
+      "ast-hfb-above-header-display": "",
+      "ast-hfb-below-header-display": "",
+      "ast-hfb-mobile-header-display": "",
+      "site-post-title": "",
+      "ast-breadcrumbs-content": "",
+      "ast-featured-img": "",
+      "footer-sml-layout": "",
+      "theme-transparent-header-meta": "",
+      "adv-header-id-meta": "",
+      "stick-header-meta": "",
+      "header-above-stick-meta": "",
+      "header-main-stick-meta": "",
+      "header-below-stick-meta": "",
+      "astra-migrate-meta-layouts": "default",
+      "ast-page-background-enabled": "default",
+      "ast-page-background-meta": {
+        "desktop": {
+          "background-color": "var(--ast-global-color-5)",
+          "background-image": "",
+          "background-repeat": "repeat",
+          "background-position": "center center",
+          "background-size": "auto",
+          "background-attachment": "scroll",
+          "background-type": "",
+          "background-media": "",
+          "overlay-type": "",
+          "overlay-color": "",
+          "overlay-opacity": "",
+          "overlay-gradient": ""
+        },
+        "tablet": {
+          "background-color": "",
+          "background-image": "",
+          "background-repeat": "repeat",
+          "background-position": "center center",
+          "background-size": "auto",
+          "background-attachment": "scroll",
+          "background-type": "",
+          "background-media": "",
+          "overlay-type": "",
+          "overlay-color": "",
+          "overlay-opacity": "",
+          "overlay-gradient": ""
+        },
+        "mobile": {
+          "background-color": "",
+          "background-image": "",
+          "background-repeat": "repeat",
+          "background-position": "center center",
+          "background-size": "auto",
+          "background-attachment": "scroll",
+          "background-type": "",
+          "background-media": "",
+          "overlay-type": "",
+          "overlay-color": "",
+          "overlay-opacity": "",
+          "overlay-gradient": ""
+        }
+      },
+      "ast-content-background-meta": {
+        "desktop": {
+          "background-color": "var(--ast-global-color-4)",
+          "background-image": "",
+          "background-repeat": "repeat",
+          "background-position": "center center",
+          "background-size": "auto",
+          "background-attachment": "scroll",
+          "background-type": "",
+          "background-media": "",
+          "overlay-type": "",
+          "overlay-color": "",
+          "overlay-opacity": "",
+          "overlay-gradient": ""
+        },
+        "tablet": {
+          "background-color": "var(--ast-global-color-4)",
+          "background-image": "",
+          "background-repeat": "repeat",
+          "background-position": "center center",
+          "background-size": "auto",
+          "background-attachment": "scroll",
+          "background-type": "",
+          "background-media": "",
+          "overlay-type": "",
+          "overlay-color": "",
+          "overlay-opacity": "",
+          "overlay-gradient": ""
+        },
+        "mobile": {
+          "background-color": "var(--ast-global-color-4)",
+          "background-image": "",
+          "background-repeat": "repeat",
+          "background-position": "center center",
+          "background-size": "auto",
+          "background-attachment": "scroll",
+          "background-type": "",
+          "background-media": "",
+          "overlay-type": "",
+          "overlay-color": "",
+          "overlay-opacity": "",
+          "overlay-gradient": ""
+        }
+      },
+      "footnotes": ""
+    },
+    "class_list": [
+      "post-3",
+      "page",
+      "type-page",
+      "status-publish",
+      "hentry"
+    ],
+    "jetpack_sharing_enabled": true,
+    "_links": {
+      "self": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/pages/3",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/pages"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/types/page"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/users/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/comments?post=3"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 1,
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/pages/3/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 13,
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/pages/3/revisions/13"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://guruvayurlive.in/wp-json/wp/v2/media?parent=3"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  }
+]

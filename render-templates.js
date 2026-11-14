@@ -225,7 +225,7 @@ function layout(title, content, activeNav = '', siteData, customMeta = '') {
   <header class="site-header">
     <div class="container header-inner">
       <a href="/" class="brand" aria-label="Guruvayur Live - Home">
-        <div class="brand-icon" aria-hidden="true">🪔</div>
+        <img src="/images/guruvayur-logo.svg" alt="Guruvayur Sree Krishna Temple Deepasthambham Emblem" class="brand-logo-img" width="42" height="42">
         <div class="brand-text">
           <span class="brand-name">Guruvayur<span class="brand-accent">Live</span></span>
           <span class="brand-tagline">Devotee Guide &bull; Live Darshan</span>

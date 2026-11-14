@@ -29,6 +29,15 @@ function saveData(data) {
 // Serve static assets
 app.use(express.static(publicDir));
 
+// Route: Favicon
+app.get('/favicon.ico', (req, res) => {
+  res.sendFile(path.join(publicDir, 'favicon.svg'));
+});
+
+app.get('/favicon.svg', (req, res) => {
+  res.sendFile(path.join(publicDir, 'favicon.svg'));
+});
+
 // Route: ads.txt
 app.get('/ads.txt', (req, res) => {
   const data = loadData();
@@ -324,6 +333,10 @@ function exportStaticSite() {
   copyRecursiveSync(path.join(publicDir, 'js'), path.join(distDir, 'js'));
   copyRecursiveSync(path.join(publicDir, 'images'), path.join(distDir, 'images'));
   fs.copyFileSync(path.join(publicDir, 'ads.txt'), path.join(distDir, 'ads.txt'));
+  if (fs.existsSync(path.join(publicDir, 'favicon.svg'))) {
+    fs.copyFileSync(path.join(publicDir, 'favicon.svg'), path.join(distDir, 'favicon.svg'));
+    fs.copyFileSync(path.join(publicDir, 'favicon.svg'), path.join(distDir, 'favicon.ico'));
+  }
 
   // Export Home
   fs.writeFileSync(path.join(distDir, 'index.html'), templates.renderHome(data), 'utf8');

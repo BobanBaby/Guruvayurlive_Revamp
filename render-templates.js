@@ -117,6 +117,9 @@ function layout(title, content, activeNav = '', siteData, customMeta = '') {
   <meta name="description" content="${customMeta || cfg.tagline}">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="${cfg.siteUrl}">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="alternate icon" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
 
   <!-- OpenGraph / Social Meta Tags (Google & AI Snippets) -->
   <meta property="og:locale" content="en_IN">

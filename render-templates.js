@@ -208,6 +208,11 @@ function layout(title, content, activeNav = '', siteData, customMeta = '') {
   }
   </script>
 
+  <!-- High Performance Google Fonts (Temple Inscription Serifs + Ultra-Crisp Mobile Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Marcellus&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="/css/style.css">
   ${!cfg.adsense.testMode && cfg.adsense.enabled ? `
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${cfg.adsense.publisherId}" crossorigin="anonymous"></script>

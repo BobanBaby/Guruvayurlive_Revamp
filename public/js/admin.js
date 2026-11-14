@@ -417,6 +417,12 @@ document.getElementById('create-post-form')?.addEventListener('submit', async (e
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     });
+    if (!res.ok) {
+      const errText = await res.text();
+      let errJson;
+      try { errJson = JSON.parse(errText); } catch(e){}
+      throw new Error(errJson?.message || `Server status ${res.status}`);
+    }
     const data = await res.json();
     if (data.success) {
       alert(editId ? 'Article updated successfully!' : 'Article published successfully!');
@@ -497,6 +503,12 @@ document.getElementById('create-gallery-form')?.addEventListener('submit', async
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     });
+    if (!res.ok) {
+      const errText = await res.text();
+      let errJson;
+      try { errJson = JSON.parse(errText); } catch(e){}
+      throw new Error(errJson?.message || `Server status ${res.status}`);
+    }
     const data = await res.json();
     if (data.success) {
       alert('Photo Collection saved and published successfully!');

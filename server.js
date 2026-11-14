@@ -10,6 +10,14 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
+// Safe bundled site data fallback
+let defaultSiteData;
+try {
+  defaultSiteData = require('./data/site-content.json');
+} catch (e) {
+  defaultSiteData = { posts: [], galleries: [], config: {} };
+}
+
 // Paths & Environment Detection
 const isVercel = Boolean(process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME);
 const defaultDataPath = path.join(__dirname, 'data', 'site-content.json');
@@ -34,17 +42,17 @@ function loadData() {
       inMemoryData = JSON.parse(fs.readFileSync(targetPath, 'utf8'));
       return inMemoryData;
     }
-  } catch (e) {
-    console.warn('Error reading from targetPath, falling back to default:', e.message);
-  }
+  } catch (e) {}
 
   try {
-    inMemoryData = JSON.parse(fs.readFileSync(defaultDataPath, 'utf8'));
-    return inMemoryData;
-  } catch (e) {
-    console.error('Fatal: Could not load site data:', e);
-    return { posts: [], galleries: [], config: {} };
-  }
+    if (fs.existsSync(defaultDataPath)) {
+      inMemoryData = JSON.parse(fs.readFileSync(defaultDataPath, 'utf8'));
+      return inMemoryData;
+    }
+  } catch (e) {}
+
+  inMemoryData = JSON.parse(JSON.stringify(defaultSiteData));
+  return inMemoryData;
 }
 
 function saveData(data) {
@@ -483,6 +491,7 @@ function generateSitemapXml(data) {
 }
 
 function exportStaticSite() {
+  if (isVercel) return;
   const data = loadData();
   fs.mkdirSync(distDir, { recursive: true });
 

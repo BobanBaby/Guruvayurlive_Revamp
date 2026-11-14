@@ -339,6 +339,30 @@ function layout(title, content, activeNav = '', siteData, customMeta = '') {
     </div>
   </footer>
 
+  <!-- Mobile App-Style Bottom Navigation Dock -->
+  <nav class="mobile-bottom-nav" role="navigation" aria-label="Mobile Bottom Navigation">
+    <a href="/" class="mobile-nav-item ${activeNav === 'home' ? 'active' : ''}">
+      <span class="mobile-nav-icon">🏠</span>
+      <span class="mobile-nav-label">Home</span>
+    </a>
+    <a href="/timings" class="mobile-nav-item ${activeNav === 'timings' ? 'active' : ''}">
+      <span class="mobile-nav-icon">⏰</span>
+      <span class="mobile-nav-label">Timings</span>
+    </a>
+    <a href="/entry-rules" class="mobile-nav-item ${activeNav === 'rules' ? 'active' : ''}">
+      <span class="mobile-nav-icon">📜</span>
+      <span class="mobile-nav-label">Rules</span>
+    </a>
+    <a href="/galleries" class="mobile-nav-item ${activeNav === 'galleries' ? 'active' : ''}">
+      <span class="mobile-nav-icon">📸</span>
+      <span class="mobile-nav-label">Photos</span>
+    </a>
+    <a href="/travel-guide" class="mobile-nav-item ${activeNav === 'travel' ? 'active' : ''}">
+      <span class="mobile-nav-icon">🏨</span>
+      <span class="mobile-nav-label">Hotels</span>
+    </a>
+  </nav>
+
   <script src="/js/main.js"></script>
 </body>
 </html>`;

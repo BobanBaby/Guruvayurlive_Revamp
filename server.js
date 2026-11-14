@@ -26,6 +26,16 @@ function saveData(data) {
   fs.writeFileSync(dataFilePath, JSON.stringify(data, null, 2), 'utf8');
 }
 
+// High-speed static caching & Security Headers for Search & AI Crawlers
+app.use((req, res, next) => {
+  if (req.url.startsWith('/css/') || req.url.startsWith('/js/') || req.url.startsWith('/images/') || req.url.endsWith('.svg') || req.url.endsWith('.ico')) {
+    res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+  }
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+  next();
+});
+
 // Serve static assets
 app.use(express.static(publicDir));
 
@@ -36,6 +46,25 @@ app.get('/favicon.ico', (req, res) => {
 
 app.get('/favicon.svg', (req, res) => {
   res.sendFile(path.join(publicDir, 'favicon.svg'));
+});
+
+// Route: robots.txt (Direct crawler instructions)
+app.get('/robots.txt', (req, res) => {
+  res.type('text/plain');
+  res.sendFile(path.join(publicDir, 'robots.txt'));
+});
+
+// Route: llms.txt (AI bot & LLM search optimization)
+app.get('/llms.txt', (req, res) => {
+  res.type('text/plain');
+  res.sendFile(path.join(publicDir, 'llms.txt'));
+});
+
+// Route: sitemap.xml (Comprehensive XML Sitemap for Google & Bing)
+app.get('/sitemap.xml', (req, res) => {
+  const data = loadData();
+  res.type('application/xml');
+  res.send(generateSitemapXml(data));
 });
 
 // Route: ads.txt
@@ -324,9 +353,92 @@ function copyRecursiveSync(src, dest) {
   }
 }
 
+function generateSitemapXml(data) {
+  const baseUrl = (data.config && data.config.siteUrl) || 'https://guruvayurlive.in';
+  const today = new Date().toISOString().split('T')[0];
+
+  let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
+  xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n`;
+  xml += `        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n`;
+
+  const corePages = [
+    { loc: '/', priority: '1.0', changefreq: 'daily', img: '/images/uploads/Guruvayur-Temple-scaled.jpg', title: 'Guruvayur Temple Sree Krishna Shrine' },
+    { loc: '/timings', priority: '0.95', changefreq: 'daily', title: 'Guruvayur Temple Daily Pooja Timings Schedule' },
+    { loc: '/entry-rules', priority: '0.9', changefreq: 'weekly', title: 'Guruvayur Temple Entry Rules and Dress Code' },
+    { loc: '/galleries', priority: '0.85', changefreq: 'weekly', title: 'Guruvayur Temple Photo Collections and Visual Archives' },
+    { loc: '/posts', priority: '0.85', changefreq: 'daily', title: 'Guruvayur Temple Devotee Guides and Articles' },
+    { loc: '/travel-guide', priority: '0.85', changefreq: 'monthly', title: 'How to Reach Guruvayur and Recommended Stays' },
+    { loc: '/marriage-guide', priority: '0.8', changefreq: 'monthly', title: 'Guruvayur Temple Marriage Kalyanam Booking Procedure' },
+    { loc: '/about', priority: '0.5', changefreq: 'monthly', title: 'About Guruvayur Live' },
+    { loc: '/contact', priority: '0.5', changefreq: 'monthly', title: 'Contact Guruvayur Live Editorial' },
+    { loc: '/privacy-policy', priority: '0.4', changefreq: 'monthly', title: 'Privacy Policy' },
+    { loc: '/terms-and-conditions', priority: '0.4', changefreq: 'monthly', title: 'Terms and Conditions' }
+  ];
+
+  corePages.forEach(p => {
+    xml += `  <url>\n`;
+    xml += `    <loc>${baseUrl}${p.loc}</loc>\n`;
+    xml += `    <lastmod>${today}</lastmod>\n`;
+    xml += `    <changefreq>${p.changefreq}</changefreq>\n`;
+    xml += `    <priority>${p.priority}</priority>\n`;
+    if (p.img) {
+      xml += `    <image:image>\n`;
+      xml += `      <image:loc>${baseUrl}${p.img}</image:loc>\n`;
+      xml += `      <image:title>${p.title}</image:title>\n`;
+      xml += `    </image:image>\n`;
+    }
+    xml += `  </url>\n`;
+  });
+
+  (data.posts || []).forEach(post => {
+    xml += `  <url>\n`;
+    xml += `    <loc>${baseUrl}/post/${post.slug}</loc>\n`;
+    xml += `    <lastmod>${post.date || today}</lastmod>\n`;
+    xml += `    <changefreq>weekly</changefreq>\n`;
+    xml += `    <priority>0.85</priority>\n`;
+    if (post.featuredImage) {
+      xml += `    <image:image>\n`;
+      xml += `      <image:loc>${baseUrl}${post.featuredImage}</image:loc>\n`;
+      xml += `      <image:title>${post.title.replace(/&/g, '&amp;')}</image:title>\n`;
+      xml += `    </image:image>\n`;
+    }
+    xml += `  </url>\n`;
+  });
+
+  (data.galleries || []).forEach(gal => {
+    xml += `  <url>\n`;
+    xml += `    <loc>${baseUrl}/gallery/${gal.id}</loc>\n`;
+    xml += `    <lastmod>${gal.date || today}</lastmod>\n`;
+    xml += `    <changefreq>weekly</changefreq>\n`;
+    xml += `    <priority>0.8</priority>\n`;
+    if (gal.coverImage) {
+      xml += `    <image:image>\n`;
+      xml += `      <image:loc>${baseUrl}${gal.coverImage}</image:loc>\n`;
+      xml += `      <image:title>${gal.title.replace(/&/g, '&amp;')}</image:title>\n`;
+      xml += `    </image:image>\n`;
+    }
+    xml += `  </url>\n`;
+  });
+
+  xml += `</urlset>\n`;
+  return xml;
+}
+
 function exportStaticSite() {
   const data = loadData();
   fs.mkdirSync(distDir, { recursive: true });
+
+  // Generate & export sitemap.xml, robots.txt, llms.txt
+  const sitemapXml = generateSitemapXml(data);
+  fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), sitemapXml, 'utf8');
+  fs.writeFileSync(path.join(distDir, 'sitemap.xml'), sitemapXml, 'utf8');
+
+  if (fs.existsSync(path.join(publicDir, 'robots.txt'))) {
+    fs.copyFileSync(path.join(publicDir, 'robots.txt'), path.join(distDir, 'robots.txt'));
+  }
+  if (fs.existsSync(path.join(publicDir, 'llms.txt'))) {
+    fs.copyFileSync(path.join(publicDir, 'llms.txt'), path.join(distDir, 'llms.txt'));
+  }
 
   // Copy CSS, JS, ads.txt, images
   copyRecursiveSync(path.join(publicDir, 'css'), path.join(distDir, 'css'));

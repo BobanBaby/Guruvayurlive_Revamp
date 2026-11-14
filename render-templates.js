@@ -186,6 +186,23 @@ function layout(title, content, activeNav = '', siteData, customMeta = '') {
             "closes": "21:30"
           }
         ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "${cfg.siteUrl}/"
+          }${activeNav ? `,
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "${title.replace(/"/g, '\\"')}",
+            "item": "${cfg.siteUrl}${activeNav ? '/' + activeNav : ''}"
+          }` : ''}
+        ]
       }
     ]
   }
@@ -547,6 +564,67 @@ function renderTimings(siteData) {
           <li><strong>Deeparadhana (Lamp Illumination):</strong> Conducted at dusk around 6:00 PM – 6:30 PM, accompanied by the ringing of bells and the lighting of thousands of oil lamps.</li>
         </ul>
       </div>
+
+      <!-- Dress Code & Rules FAQ Schema for Google Rich Snippets & AI Engines -->
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the dress code for men at Guruvayur Temple?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Men must wear a traditional Dhoti (Mundu) around the waist. Shirts, banyans, vests, pants, and jeans are strictly prohibited inside the inner complex. An Angavastram (shoulder cloth) is permitted."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the dress code for women at Guruvayur Temple?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Women can wear a Saree, Half-Saree (Pavada & Blouse), Set Mundu, or Chudidhar/Salwar Kameez with Dupatta. Western wear, skirts, jeans, and leggings are strictly prohibited."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are mobile phones and cameras allowed inside Guruvayur Temple?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Mobile phones, cameras, video recording, and smartwatches are strictly banned inside the inner temple complex as per Kerala High Court directives. Safe cloakroom lockers are available near East Nada."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where can devotees keep footwear at Guruvayur?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Devotees must deposit shoes and footwear at the designated free footwear counters located outside the temple gates near East Nada before entering."
+            }
+          }
+        ]
+      }
+      </script>
+          {
+            "@type": "Question",
+            "name": "When is the afternoon break at Guruvayur temple?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The temple sanctum closes between 1:30 PM and 4:30 PM IST daily after Ucha Pooja. No darshan is conducted during this rest window."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What time is Deeparadhana performed at Guruvayur?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Deeparadhana is performed at dusk between 6:00 PM and 6:45 PM IST, accompanied by temple bells and the grand lighting of hundreds of oil lamps."
+            }
+          }
+        ]
+      }
+      </script>
     </div>
   `;
 
@@ -740,6 +818,34 @@ function renderSinglePost(post, siteData) {
         <div style="margin-top: 40px; padding: 20px; background:var(--bg-subtle); border-radius:var(--radius-md); font-size:0.88rem; border-left:4px solid var(--primary);">
           <strong>Devaswom Notice:</strong> For official pooja receipts, vazhipadu bookings, and room reservations, always visit the official Guruvayur Devaswom portal at <a href="${cfg.officialDevaswomUrl}" target="_blank" rel="noopener">guruvayurdevaswom.in</a>.
         </div>
+
+        <!-- Article Structured Data for Google News, AI Overviews & Search -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "${post.title.replace(/"/g, '\\"')}",
+          "description": "${post.excerpt.replace(/"/g, '\\"')}",
+          "image": "${cfg.siteUrl}${post.featuredImage}",
+          "datePublished": "${post.date}",
+          "dateModified": "${post.date}",
+          "mainEntityOfPage": "${cfg.siteUrl}/post/${post.slug}",
+          "author": {
+            "@type": "Organization",
+            "name": "Guruvayur Live Editorial",
+            "url": "${cfg.siteUrl}"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Guruvayur Live",
+            "url": "${cfg.siteUrl}",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "${cfg.siteUrl}/favicon.svg"
+            }
+          }
+        }
+        </script>
       </div>
 
       <!-- Sidebar -->
@@ -826,6 +932,67 @@ function renderRulesPage(siteData) {
           <li><strong>Tobacco &amp; Alcohol:</strong> Strictly forbidden. Smoking and chewing tobacco in the temple vicinity is punishable by law.</li>
         </ul>
       </div>
+
+      <!-- Dress Code & Rules FAQ Schema for Google Rich Snippets & AI Engines -->
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the dress code for men at Guruvayur Temple?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Men must wear a traditional Dhoti (Mundu) around the waist. Shirts, banyans, vests, pants, and jeans are strictly prohibited inside the inner complex. An Angavastram (shoulder cloth) is permitted."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the dress code for women at Guruvayur Temple?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Women can wear a Saree, Half-Saree (Pavada & Blouse), Set Mundu, or Chudidhar/Salwar Kameez with Dupatta. Western wear, skirts, jeans, and leggings are strictly prohibited."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are mobile phones and cameras allowed inside Guruvayur Temple?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Mobile phones, cameras, video recording, and smartwatches are strictly banned inside the inner temple complex as per Kerala High Court directives. Safe cloakroom lockers are available near East Nada."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where can devotees keep footwear at Guruvayur?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Devotees must deposit shoes and footwear at the designated free footwear counters located outside the temple gates near East Nada before entering."
+            }
+          }
+        ]
+      }
+      </script>
+          {
+            "@type": "Question",
+            "name": "When is the afternoon break at Guruvayur temple?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The temple sanctum closes between 1:30 PM and 4:30 PM IST daily after Ucha Pooja. No darshan is conducted during this rest window."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What time is Deeparadhana performed at Guruvayur?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Deeparadhana is performed at dusk between 6:00 PM and 6:45 PM IST, accompanied by temple bells and the grand lighting of hundreds of oil lamps."
+            }
+          }
+        ]
+      }
+      </script>
     </div>
   `;
 

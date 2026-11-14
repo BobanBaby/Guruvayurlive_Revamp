@@ -1,0 +1,36 @@
+# Robots.txt for Guruvayur Live (https://guruvayurlive.in)
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api/
+
+# Explicitly welcome Search Engine Bots & AI Overviews
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /images/
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# Canonical Sitemaps
+Sitemap: https://guruvayurlive.in/sitemap.xml

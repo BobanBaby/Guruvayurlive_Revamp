@@ -10,20 +10,51 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
-// Paths
-const dataFilePath = path.join(__dirname, 'data', 'site-content.json');
+// Paths & Environment Detection
+const isVercel = Boolean(process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME);
+const defaultDataPath = path.join(__dirname, 'data', 'site-content.json');
+const tmpDataPath = path.join('/tmp', 'site-content.json');
 const publicDir = path.join(__dirname, 'public');
 const uploadsDir = path.join(publicDir, 'images', 'uploads');
 const distDir = path.join(__dirname, 'dist');
 
-fs.mkdirSync(uploadsDir, { recursive: true });
+try {
+  fs.mkdirSync(uploadsDir, { recursive: true });
+} catch (e) {}
+
+// Safe data store for serverless & local environments
+let inMemoryData = null;
 
 function loadData() {
-  return JSON.parse(fs.readFileSync(dataFilePath, 'utf8'));
+  if (inMemoryData) return inMemoryData;
+
+  const targetPath = (isVercel && fs.existsSync(tmpDataPath)) ? tmpDataPath : defaultDataPath;
+  try {
+    if (fs.existsSync(targetPath)) {
+      inMemoryData = JSON.parse(fs.readFileSync(targetPath, 'utf8'));
+      return inMemoryData;
+    }
+  } catch (e) {
+    console.warn('Error reading from targetPath, falling back to default:', e.message);
+  }
+
+  try {
+    inMemoryData = JSON.parse(fs.readFileSync(defaultDataPath, 'utf8'));
+    return inMemoryData;
+  } catch (e) {
+    console.error('Fatal: Could not load site data:', e);
+    return { posts: [], galleries: [], config: {} };
+  }
 }
 
 function saveData(data) {
-  fs.writeFileSync(dataFilePath, JSON.stringify(data, null, 2), 'utf8');
+  inMemoryData = data;
+  const targetPath = isVercel ? tmpDataPath : defaultDataPath;
+  try {
+    fs.writeFileSync(targetPath, JSON.stringify(data, null, 2), 'utf8');
+  } catch (err) {
+    console.warn('Filesystem write prevented in serverless environment, data preserved in memory:', err.message);
+  }
 }
 
 // High-speed static caching & Security Headers for Search & AI Crawlers
@@ -294,12 +325,25 @@ app.delete('/api/galleries/:id', (req, res) => {
 
 app.get('/api/media', (req, res) => {
   try {
-    const files = fs.readdirSync(uploadsDir);
-    const media = files.map(file => ({
-      name: file,
-      url: `/images/uploads/${file}`
-    }));
-    res.json(media);
+    const list = [];
+    const seen = new Set();
+    const dirs = [uploadsDir];
+    if (fs.existsSync('/tmp/uploads')) dirs.push('/tmp/uploads');
+
+    dirs.forEach(d => {
+      if (fs.existsSync(d)) {
+        fs.readdirSync(d).forEach(file => {
+          if (!seen.has(file)) {
+            seen.add(file);
+            list.push({
+              name: file,
+              url: `/images/uploads/${file}`
+            });
+          }
+        });
+      }
+    });
+    res.json(list);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -313,10 +357,24 @@ app.post('/api/upload', (req, res) => {
     const cleanFilename = Date.now() + '-' + filename.replace(/[^a-zA-Z0-9._-]/g, '_');
     const base64Data = data.replace(/^data:image\/\w+;base64,/, '');
     const buffer = Buffer.from(base64Data, 'base64');
-    const dest = path.join(uploadsDir, cleanFilename);
-    fs.writeFileSync(dest, buffer);
 
-    res.json({ success: true, url: `/images/uploads/${cleanFilename}`, name: cleanFilename });
+    let saved = false;
+    const targetDirs = [uploadsDir, '/tmp/uploads'];
+    for (const dir of targetDirs) {
+      try {
+        fs.mkdirSync(dir, { recursive: true });
+        fs.writeFileSync(path.join(dir, cleanFilename), buffer);
+        saved = true;
+        break;
+      } catch (e) {}
+    }
+
+    if (saved) {
+      return res.json({ success: true, url: `/images/uploads/${cleanFilename}`, name: cleanFilename });
+    } else {
+      // Fallback: return data URI so image functions seamlessly even without disk write access
+      return res.json({ success: true, url: data, name: cleanFilename });
+    }
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });
   }
@@ -495,19 +553,24 @@ function exportStaticSite() {
   console.log('Static site exported successfully into:', distDir);
 }
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`====================================================`);
-  console.log(`🚩 Guruvayur Live Redesign Server Running!`);
-  console.log(`🌐 Public Website: http://localhost:${PORT}`);
-  console.log(`🔑 Admin Dashboard: http://localhost:${PORT}/admin`);
-  console.log(`📄 AdSense ads.txt: http://localhost:${PORT}/ads.txt`);
-  console.log(`====================================================`);
-});
+// Start server when executed directly (or export for Vercel Serverless Function)
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`====================================================`);
+    console.log(`🚩 Guruvayur Live Redesign Server Running!`);
+    console.log(`🌐 Public Website: http://localhost:${PORT}`);
+    console.log(`🔑 Admin Dashboard: http://localhost:${PORT}/admin`);
+    console.log(`📄 AdSense ads.txt: http://localhost:${PORT}/ads.txt`);
+    console.log(`====================================================`);
+  });
 
-// Also export static files initially so dist/ is always ready
-try {
-  exportStaticSite();
-} catch (e) {
-  console.warn('Initial static export skipped:', e.message);
+  // Export static files initially so dist/ is always ready locally
+  try {
+    exportStaticSite();
+  } catch (e) {
+    console.warn('Initial static export skipped:', e.message);
+  }
 }
+
+module.exports = app;
+module.exports.exportStaticSite = exportStaticSite;

@@ -40,6 +40,13 @@ document.getElementById('login-form')?.addEventListener('submit', async (e) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username: u, password: p })
     });
+    if (!res.ok) {
+      const text = await res.text();
+      let msg = text;
+      try { msg = JSON.parse(text).message; } catch(e){}
+      alert(msg || 'Invalid credentials');
+      return;
+    }
     const data = await res.json();
     if (data.success) {
       localStorage.setItem('gl_admin_token', 'logged_in');
@@ -601,6 +608,10 @@ document.getElementById('settings-form')?.addEventListener('submit', async (e) =
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(cfg)
     });
+    if (!res.ok) {
+      const errText = await res.text();
+      throw new Error(`Status ${res.status}: ${errText.substring(0, 100)}`);
+    }
     const data = await res.json();
     if (data.success) {
       alert('Settings & AdSense configurations updated successfully!');

@@ -333,25 +333,27 @@ app.delete('/api/galleries/:id', (req, res) => {
 
 app.get('/api/media', (req, res) => {
   try {
-    const list = [];
-    const seen = new Set();
+    const data = loadData();
+    const mediaList = [...(data.media || [])];
+    const seenUrls = new Set(mediaList.map(m => m.url));
+
+    // Also scan filesystem directories if available
     const dirs = [uploadsDir];
     if (fs.existsSync('/tmp/uploads')) dirs.push('/tmp/uploads');
 
     dirs.forEach(d => {
       if (fs.existsSync(d)) {
         fs.readdirSync(d).forEach(file => {
-          if (!seen.has(file)) {
-            seen.add(file);
-            list.push({
-              name: file,
-              url: `/images/uploads/${file}`
-            });
+          const url = `/images/uploads/${file}`;
+          if (!seenUrls.has(url)) {
+            seenUrls.add(url);
+            mediaList.push({ name: file, url });
           }
         });
       }
     });
-    res.json(list);
+
+    res.json(mediaList);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -366,23 +368,33 @@ app.post('/api/upload', (req, res) => {
     const base64Data = data.replace(/^data:image\/\w+;base64,/, '');
     const buffer = Buffer.from(base64Data, 'base64');
 
-    let saved = false;
+    let savedUrl = '';
     const targetDirs = [uploadsDir, '/tmp/uploads'];
     for (const dir of targetDirs) {
       try {
         fs.mkdirSync(dir, { recursive: true });
         fs.writeFileSync(path.join(dir, cleanFilename), buffer);
-        saved = true;
+        savedUrl = `/images/uploads/${cleanFilename}`;
         break;
       } catch (e) {}
     }
 
-    if (saved) {
-      return res.json({ success: true, url: `/images/uploads/${cleanFilename}`, name: cleanFilename });
-    } else {
-      // Fallback: return data URI so image functions seamlessly even without disk write access
-      return res.json({ success: true, url: data, name: cleanFilename });
+    // Fallback if filesystem is strictly read-only: use the base64 data URI
+    if (!savedUrl) {
+      savedUrl = data;
     }
+
+    // Persist into site-content media collection so it appears immediately in all pickers & library
+    const siteData = loadData();
+    if (!siteData.media) siteData.media = [];
+    siteData.media.unshift({
+      name: filename,
+      url: savedUrl,
+      date: new Date().toISOString()
+    });
+    saveData(siteData);
+
+    return res.json({ success: true, url: savedUrl, name: filename });
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });
   }

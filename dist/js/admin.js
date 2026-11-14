@@ -107,20 +107,32 @@ function renderOverview() {
 function renderMediaPickers() {
   const container = document.getElementById('featured-media-picker');
   if (!container) return;
-  container.innerHTML = '';
+  container.innerHTML = '<p style="color:#64748b; font-size:0.85rem; padding:8px;">Loading media assets...</p>';
 
-  fetch('/api/media').then(r => r.json()).then(files => {
-    document.getElementById('stat-media-count').textContent = files.length;
-    files.forEach(f => {
-      const item = document.createElement('div');
-      item.className = 'media-picker-item' + (selectedFeaturedImage === f.url ? ' selected' : '');
-      item.innerHTML = `<img src="${f.url}" alt="${f.name}" title="${f.name}">`;
-      item.addEventListener('click', () => {
-        selectFeaturedImage(f.url, f.name);
+  fetch('/api/media')
+    .then(r => r.json())
+    .then(files => {
+      container.innerHTML = '';
+      if (document.getElementById('stat-media-count')) {
+        document.getElementById('stat-media-count').textContent = files.length;
+      }
+      if (!files.length) {
+        container.innerHTML = '<p style="color:#64748b; font-size:0.85rem; padding:8px;">No images in library yet. Use the upload box above to add photos!</p>';
+        return;
+      }
+      files.forEach(f => {
+        const item = document.createElement('div');
+        item.className = 'media-picker-item' + (selectedFeaturedImage === f.url ? ' selected' : '');
+        item.innerHTML = `<img src="${f.url}" alt="${f.name}" title="${f.name}">`;
+        item.addEventListener('click', () => {
+          selectFeaturedImage(f.url, f.name);
+        });
+        container.appendChild(item);
       });
-      container.appendChild(item);
+    })
+    .catch(err => {
+      container.innerHTML = `<p style="color:#ef4444; font-size:0.85rem; padding:8px;">Error loading library images: ${err.message}</p>`;
     });
-  });
 }
 
 function selectFeaturedImage(url, name) {
@@ -142,26 +154,35 @@ function selectFeaturedImage(url, name) {
 function renderMediaLibrary() {
   const container = document.getElementById('media-library-grid');
   if (!container) return;
-  container.innerHTML = '<p style="color:#64748b;">Loading media assets...</p>';
+  container.innerHTML = '<p style="color:#64748b; font-size:0.9rem; padding:12px;">Loading media assets...</p>';
 
-  fetch('/api/media').then(r => r.json()).then(files => {
-    container.innerHTML = '';
-    files.forEach(f => {
-      const card = document.createElement('div');
-      card.className = 'gallery-card';
-      card.style.fontSize = '0.85rem';
-      card.innerHTML = `
-        <div class="gallery-thumb-wrap" style="aspect-ratio: 1; cursor:pointer;" onclick="copyToClipboard('${f.url}')">
-          <img src="${f.url}" alt="${f.name}">
-        </div>
-        <div style="padding: 10px;">
-          <strong style="display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${f.name}">${f.name}</strong>
-          <button class="btn btn-outline" style="padding:4px 8px; font-size:0.75rem; width:100%; margin-top:8px; color:var(--primary); border-color:#cbd5e1;" onclick="copyToClipboard('${f.url}')">📋 Copy URL</button>
-        </div>
-      `;
-      container.appendChild(card);
+  fetch('/api/media')
+    .then(r => r.json())
+    .then(files => {
+      container.innerHTML = '';
+      if (!files.length) {
+        container.innerHTML = '<p style="color:#64748b; font-size:0.9rem; padding:12px;">No images in media library yet. Use the upload box above to add photos!</p>';
+        return;
+      }
+      files.forEach(f => {
+        const card = document.createElement('div');
+        card.className = 'gallery-card';
+        card.style.fontSize = '0.85rem';
+        card.innerHTML = `
+          <div class="gallery-thumb-wrap" style="aspect-ratio: 1; cursor:pointer;" onclick="copyToClipboard('${f.url}')">
+            <img src="${f.url}" alt="${f.name}">
+          </div>
+          <div style="padding: 10px;">
+            <strong style="display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${f.name}">${f.name}</strong>
+            <button class="btn btn-outline" style="padding:4px 8px; font-size:0.75rem; width:100%; margin-top:8px; color:var(--primary); border-color:#cbd5e1;" onclick="copyToClipboard('${f.url}')">📋 Copy URL</button>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    })
+    .catch(err => {
+      container.innerHTML = `<p style="color:#ef4444; font-size:0.9rem; padding:12px;">Error loading media: ${err.message}</p>`;
     });
-  });
 }
 
 function copyToClipboard(text) {
@@ -229,29 +250,80 @@ function initImageUploaders() {
   }
 }
 
-async function uploadFileToServer(file, callback) {
+function compressImageIfNeeded(file) {
   return new Promise((resolve) => {
+    if (!file.type.startsWith('image/')) {
+      const reader = new FileReader();
+      reader.onload = (e) => resolve(e.target.result);
+      reader.readAsDataURL(file);
+      return;
+    }
     const reader = new FileReader();
-    reader.onload = async (event) => {
-      try {
-        const base64 = event.target.result;
-        const res = await fetch('/api/upload', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ filename: file.name, data: base64 })
-        });
-        const result = await res.json();
-        if (result.success && callback) {
-          callback(result);
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onload = () => {
+        const MAX_DIM = 1920;
+        let width = img.width;
+        let height = img.height;
+
+        if (width > MAX_DIM || height > MAX_DIM || file.size > 1024 * 1024) {
+          if (width > height) {
+            if (width > MAX_DIM) {
+              height = Math.round(height * (MAX_DIM / width));
+              width = MAX_DIM;
+            }
+          } else {
+            if (height > MAX_DIM) {
+              width = Math.round(width * (MAX_DIM / height));
+              height = MAX_DIM;
+            }
+          }
+          const canvas = document.createElement('canvas');
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, width, height);
+          resolve(canvas.toDataURL('image/jpeg', 0.88));
+        } else {
+          resolve(e.target.result);
         }
-        resolve(result);
-      } catch (err) {
-        console.error('Upload error:', err);
-        resolve(null);
-      }
+      };
+      img.onerror = () => resolve(e.target.result);
+      img.src = e.target.result;
     };
+    reader.onerror = () => resolve(null);
     reader.readAsDataURL(file);
   });
+}
+
+async function uploadFileToServer(file, callback) {
+  try {
+    const base64 = await compressImageIfNeeded(file);
+    if (!base64) throw new Error('Could not process image file');
+
+    const res = await fetch('/api/upload', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ filename: file.name, data: base64 })
+    });
+
+    if (!res.ok) {
+      const errText = await res.text();
+      let errJson;
+      try { errJson = JSON.parse(errText); } catch(e){}
+      throw new Error(errJson?.message || `Server status ${res.status}`);
+    }
+
+    const result = await res.json();
+    if (result.success && callback) {
+      callback(result);
+    }
+    return result;
+  } catch (err) {
+    console.error('Upload error:', err);
+    alert('Upload failed for ' + file.name + ': ' + err.message);
+    return null;
+  }
 }
 
 // -------------------------------------------------------------
@@ -265,13 +337,22 @@ function openInsertImageModal() {
   grid.innerHTML = '<p style="color:#64748b;">Loading library images...</p>';
   modal.style.display = 'flex';
 
-  fetch('/api/media').then(r => r.json()).then(files => {
-    grid.innerHTML = files.map(f => `
-      <div class="media-picker-item" onclick="insertImageIntoContent('${f.url}', '${f.name.replace(/'/g, "")}')">
-        <img src="${f.url}" alt="${f.name}">
-      </div>
-    `).join('');
-  });
+  fetch('/api/media')
+    .then(r => r.json())
+    .then(files => {
+      if (!files.length) {
+        grid.innerHTML = '<p style="color:#64748b; font-size:0.85rem; padding:12px;">No images in media library yet. Upload photos from the article form first!</p>';
+        return;
+      }
+      grid.innerHTML = files.map(f => `
+        <div class="media-picker-item" onclick="insertImageIntoContent('${f.url}', '${f.name.replace(/'/g, "")}')">
+          <img src="${f.url}" alt="${f.name}">
+        </div>
+      `).join('');
+    })
+    .catch(err => {
+      grid.innerHTML = `<p style="color:#ef4444; font-size:0.85rem; padding:12px;">Error loading images: ${err.message}</p>`;
+    });
 }
 
 function closeInsertImageModal() {

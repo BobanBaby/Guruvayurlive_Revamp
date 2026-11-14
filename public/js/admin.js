@@ -421,9 +421,10 @@ function closeAttachGalleryModal() {
 }
 
 function addPhotoToArticleGallery(url, caption = '') {
+  const isRaw = /^\d{10,}|scaled|WA_|IMG_|newindianexpress|xbc4h5pj|\.(jpg|png|webp|avif)/i.test(caption);
   articleGalleryItems.push({
     url,
-    caption: caption.replace(/\.[^/.]+$/, "").replace(/[-_]/g, ' ')
+    caption: isRaw ? '' : caption.replace(/\.[^/.]+$/, "").replace(/[-_]/g, ' ')
   });
   renderArticleGalleryUi();
   closeAttachGalleryModal();

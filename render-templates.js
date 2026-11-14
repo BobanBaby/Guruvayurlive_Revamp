@@ -6,6 +6,12 @@
 const fs = require('fs');
 const path = require('path');
 
+function getCleanCaption(caption) {
+  if (!caption) return '';
+  const isRaw = /^\d{10,}|scaled|WA_|IMG_|newindianexpress|xbc4h5pj|\.(jpg|png|webp|avif)/i.test(caption);
+  return isRaw ? '' : caption;
+}
+
 function getAdSlotHtml(type, config) {
   if (!config.adsense.enabled) return '';
 
@@ -728,17 +734,19 @@ function renderSingleGallery(gallery, siteData) {
       ${getAdSlotHtml('in-article', cfg)}
 
       <div class="gallery-grid" style="margin: 32px 0;">
-        ${(gallery.images || []).map((img, idx) => `
+        ${(gallery.images || []).map((img, idx) => {
+          const cleanCap = getCleanCaption(img.caption);
+          return `
           <div class="gallery-card" style="cursor:pointer;" onclick='openLightbox(${imagesJson.replace(/'/g, "&#39;")}, ${idx})'>
             <div class="gallery-thumb-wrap" style="aspect-ratio: 4/3;">
-              <img src="${img.url}" alt="${img.caption || gallery.title}" loading="lazy">
+              <img src="${img.url}" alt="${cleanCap || gallery.title}" loading="lazy">
             </div>
             <div style="padding: 12px; font-size:0.88rem; color:var(--text-main); font-weight:600;">
-              ${img.caption || `Photo ${idx + 1}`}
-              <div style="font-size:0.75rem; color:var(--gold-dark); margin-top:4px;">Click to enlarge &rarr;</div>
+              ${cleanCap ? `<div style="margin-bottom:4px;">${cleanCap}</div>` : ''}
+              <div style="font-size:0.75rem; color:var(--gold-dark); font-weight:700;">Click to enlarge &rarr;</div>
             </div>
           </div>
-        `).join('')}
+        `}).join('')}
       </div>
 
       <div style="text-align:center; margin: 40px 0;">
@@ -833,17 +841,19 @@ function renderSinglePost(post, siteData) {
             <span class="section-tag">Article Photo Gallery</span>
             <h3 style="color:var(--primary); margin: 10px 0 16px;">Attached Photo Collection (${post.gallery.length} Images)</h3>
             <div class="gallery-grid" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px;">
-              ${post.gallery.map((gImg, idx) => `
+              ${post.gallery.map((gImg, idx) => {
+                const cleanCap = getCleanCaption(gImg.caption);
+                return `
                 <div class="gallery-card" style="cursor:pointer;" onclick='openLightbox(${JSON.stringify(post.gallery).replace(/'/g, "&#39;")}, ${idx})'>
                   <div class="gallery-thumb-wrap" style="aspect-ratio: 4/3;">
-                    <img src="${gImg.url}" alt="${gImg.caption || 'Photo ' + (idx + 1)}" loading="lazy">
+                    <img src="${gImg.url}" alt="${cleanCap || post.title}" loading="lazy">
                   </div>
                   <div style="padding: 10px; font-size: 0.85rem; color: var(--text-main); font-weight: 600;">
-                    ${gImg.caption || 'Photo ' + (idx + 1)}
-                    <div style="font-size: 0.72rem; color: var(--gold-dark); margin-top: 2px;">Click to enlarge &rarr;</div>
+                    ${cleanCap ? `<div style="margin-bottom:4px;">${cleanCap}</div>` : ''}
+                    <div style="font-size: 0.75rem; color: var(--gold-dark); font-weight: 700;">Click to enlarge &rarr;</div>
                   </div>
                 </div>
-              `).join('')}
+              `}).join('')}
             </div>
           </div>
         ` : ''}

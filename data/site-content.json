@@ -6,19 +6,19 @@
     "contactEmail": "contact@guruvayurlive.in",
     "officialDevaswomUrl": "https://guruvayurdevaswom.in",
     "announcement": {
-      "enabled": true,
+      "enabled": false,
       "text": "🚩 Guruvayur Ulsavam & Ekadasi 2026: Check complete ritual schedule, Seeveli timings & entry rules below.",
       "link": "/festivals"
     },
     "adsense": {
-      "enabled": true,
-      "testMode": true,
+      "enabled": false,
+      "testMode": false,
       "publisherId": "ca-pub-XXXXXXXXXXXXXXXX",
       "slots": {
-        "headerBanner": true,
-        "inArticleBanner": true,
-        "sidebarBanner": true,
-        "stickyFooter": true
+        "headerBanner": false,
+        "inArticleBanner": false,
+        "sidebarBanner": false,
+        "stickyFooter": false
       }
     },
     "admin": {
@@ -42,7 +42,7 @@
       "gallery": [
         {
           "url": "/images/uploads/1794639016727-newindianexpress_2026-08-13_xbc4h5pj_guruvayur-temple094841.avif",
-          "caption": "1794639016727 newindianexpress 2026 08 13 xbc4h5pj guruvayur temple094841"
+          "caption": ""
         }
       ]
     },

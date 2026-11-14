@@ -173,8 +173,11 @@ function renderMediaLibrary() {
             <img src="${f.url}" alt="${f.name}">
           </div>
           <div style="padding: 10px;">
-            <strong style="display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${f.name}">${f.name}</strong>
-            <button class="btn btn-outline" style="padding:4px 8px; font-size:0.75rem; width:100%; margin-top:8px; color:var(--primary); border-color:#cbd5e1;" onclick="copyToClipboard('${f.url}')">📋 Copy URL</button>
+            <strong style="display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; margin-bottom:8px;" title="${f.name}">${f.name}</strong>
+            <div style="display:flex; gap:6px;">
+              <button class="btn btn-outline" style="flex:1; padding:5px 6px; font-size:0.75rem; color:var(--primary); border-color:#cbd5e1;" onclick="copyToClipboard('${f.url}')">📋 Copy</button>
+              <button class="btn btn-outline" style="padding:5px 8px; font-size:0.75rem; color:#dc2626; border-color:#fca5a5; background:#fff5f5;" onclick="deleteMediaImage('${f.name}')" title="Delete image from library">🗑️ Delete</button>
+            </div>
           </div>
         `;
         container.appendChild(card);
@@ -183,6 +186,34 @@ function renderMediaLibrary() {
     .catch(err => {
       container.innerHTML = `<p style="color:#ef4444; font-size:0.9rem; padding:12px;">Error loading media: ${err.message}</p>`;
     });
+}
+
+async function deleteMediaImage(name) {
+  if (!confirm(`Are you sure you want to permanently delete "${name}" from the media library?`)) {
+    return;
+  }
+
+  try {
+    const res = await fetch(`/api/media?name=${encodeURIComponent(name)}`, {
+      method: 'DELETE'
+    });
+    if (!res.ok) {
+      const errText = await res.text();
+      let errJson;
+      try { errJson = JSON.parse(errText); } catch(e){}
+      throw new Error(errJson?.message || `Server status ${res.status}`);
+    }
+    const data = await res.json();
+    if (data.success) {
+      renderMediaPickers();
+      renderMediaLibrary();
+      alert(`Image "${name}" deleted successfully!`);
+    } else {
+      alert('Delete failed: ' + data.message);
+    }
+  } catch (err) {
+    alert('Error deleting image: ' + err.message);
+  }
 }
 
 function copyToClipboard(text) {

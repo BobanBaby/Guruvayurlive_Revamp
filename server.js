@@ -359,6 +359,39 @@ app.get(['/api/media', '/media'], (req, res) => {
   }
 });
 
+app.delete(['/api/media/:name', '/media/:name', '/api/media', '/media'], (req, res) => {
+  const targetName = req.params.name || req.query.name || req.body?.name;
+  if (!targetName) {
+    return res.status(400).json({ success: false, message: 'Missing image name to delete' });
+  }
+
+  try {
+    const data = loadData();
+    // Filter out from data.media
+    if (data.media) {
+      data.media = data.media.filter(m => m.name !== targetName && !m.url.endsWith('/' + targetName));
+      saveData(data);
+    }
+
+    // Attempt physical deletion from uploadsDir and /tmp/uploads
+    const targetDirs = [uploadsDir, '/tmp/uploads'];
+    targetDirs.forEach(dir => {
+      try {
+        const filePath = path.join(dir, targetName);
+        if (fs.existsSync(filePath)) {
+          fs.unlinkSync(filePath);
+        }
+      } catch (e) {}
+    });
+
+    try { if (!isVercel) exportStaticSite(); } catch (e) {}
+
+    res.json({ success: true, message: 'Image deleted successfully' });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+});
+
 app.post(['/api/upload', '/upload'], (req, res) => {
   const { filename, data } = req.body;
   if (!filename || !data) return res.status(400).json({ success: false, message: 'Missing file data' });
